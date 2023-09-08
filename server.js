@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const PORT = 8000
+const PORT = 3000
 const path = require('path')
 const cors = require("cors")
 require('dotenv').config({ path: path.resolve(__dirname, '.env') })
