@@ -2,6 +2,9 @@ const express = require("express")
 const app = express()
 const PORT = 8000
 const path = require('path')
+const cors = require("cors")
+
+app.use(cors())
 
 
 const rappers = {
