@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const MongoClient = require('mongodb').MongoClient
+const mongoose = require('mongoose')
 const PORT = 3000
 const path = require('path')
 const cors = require("cors")
@@ -13,6 +14,21 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
 
+// const connectDB = async () => {
+//     try {
+//         const conn = await mongoose.connect(`mongodb+srv://mlexka:${password}@boostsapi.n4a9b0m.mongodb.net/?retryWrites=true&w=majority`, {
+//             useNewUrlParser: true,
+//         });
+//         console.log(`MongoDB Connected: {conn.connection.host}`);
+//     } catch (error) {
+//         console.error(error.message);
+//         process.exit(1);
+//     }
+// }
+//
+// connectDB()
+
+
 let db,
     dbConnectionStr = `mongodb+srv://mlexka:${password}@boostsapi.n4a9b0m.mongodb.net/?retryWrites=true&w=majority`,
     dbName = 'boostsApi'
@@ -21,6 +37,9 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
         console.log(`Connected to ${dbName} Database`)
         db = client.db(dbName)
+        app.listen(process.env.PORT || PORT, ()=>{
+            console.log(`Server running on port ${PORT}`)
+        })
     })
 
 
@@ -90,6 +109,4 @@ app.delete('/deleteBeneficiaireID', (request, response) => {
 
 
 
-app.listen(process.env.PORT || PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
-})
+
