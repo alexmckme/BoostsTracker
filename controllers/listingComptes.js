@@ -14,7 +14,7 @@ module.exports = {
     addCompte: async (req,res) => {
         try {
             await Compte.create({
-                beneficiaireID: req.body.beneficiaireID,
+                beneficiaireID: Number(req.body.beneficiaireID),
                 beneficiaireName: req.body.beneficiaireName,
                 beneficiaireSalesSupport: req.body.beneficiaireSalesSupport,
                 completed: false

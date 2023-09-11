@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const CompteSchema = new mongoose.Schema({
     beneficiaireID: {
-        type: String,
+        type: Number,
         required: true,
     },
     beneficiaireName: {
