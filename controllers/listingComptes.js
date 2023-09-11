@@ -29,7 +29,7 @@ module.exports = {
     markCompteComplete: async (req,res) => {
         try {
             await Compte.findOneAndUpdate({
-                beneficiaireID: req.body.itemFromJS
+                _id: req.body.itemFromJS
             },{
                 completed: true
             })
@@ -43,7 +43,7 @@ module.exports = {
     markCompteUncomplete: async (req,res) => {
         try {
             await Compte.findOneAndUpdate({
-                beneficiaireID: req.body.itemFromJS
+                _id: req.body.itemFromJS
             },{
                 completed: false
             })
@@ -57,7 +57,7 @@ module.exports = {
     deleteCompte: async (req,res) => {
         try {
             await Compte.findOneAndDelete({
-                beneficiaireID: req.body.itemFromJS
+                _id: req.body.itemFromJS
             })
             console.log("Client supprimé !")
             res.json("Client supprimé !")

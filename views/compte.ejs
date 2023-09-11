@@ -13,7 +13,7 @@
 <h1>Liste complète des Comptes à Booster :</h1>
 <ul class="todoItems">
     <% for(let i=0; i < clients.length; i++) {%>
-        <li class="item">
+        <li class="item" data-id="<%= clients[i]._id %>">
             <% if(clients[i].completed === true) {%>
                 <span class='completed'><%= clients[i].beneficiaireID %></span>
                 <span class='completed'><%= clients[i].beneficiaireName %></span>

@@ -15,7 +15,7 @@ Array.from(itemCompleted).forEach((element)=>{
 })
 
 async function deleteBeneficiaireID(){
-    const itemText = this.parentNode.childNodes[1].innerText
+    const itemText = this.parentNode.dataset.id
     try{
         const response = await fetch('/listingComptes/deleteCompte', {
             method: 'delete',
@@ -34,7 +34,7 @@ async function deleteBeneficiaireID(){
 }
 
 async function markBeneficiaireIDComplete(){
-    const itemText = this.parentNode.childNodes[1].innerText
+    const itemText = this.parentNode.dataset.id
     try{
         const response = await fetch('/listingComptes/markCompteComplete', {
             method: 'put',
@@ -53,7 +53,7 @@ async function markBeneficiaireIDComplete(){
 }
 
 async function markBeneficiaireIDUnComplete(){
-    const itemText = this.parentNode.childNodes[1].innerText
+    const itemText = this.parentNode.dataset.id
     try{
         const response = await fetch('/listingComptes/markCompteUncomplete', {
             method: 'put',
