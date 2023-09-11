@@ -17,7 +17,7 @@ Array.from(itemCompleted).forEach((element)=>{
 async function deleteBeneficiaireID(){
     const itemText = this.parentNode.childNodes[1].innerText
     try{
-        const response = await fetch('deleteBeneficiaireID', {
+        const response = await fetch('/listingComptes/deleteCompte', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -36,7 +36,7 @@ async function deleteBeneficiaireID(){
 async function markBeneficiaireIDComplete(){
     const itemText = this.parentNode.childNodes[1].innerText
     try{
-        const response = await fetch('markBeneficiaireIDComplete', {
+        const response = await fetch('/listingComptes/markCompteComplete', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -55,7 +55,7 @@ async function markBeneficiaireIDComplete(){
 async function markBeneficiaireIDUnComplete(){
     const itemText = this.parentNode.childNodes[1].innerText
     try{
-        const response = await fetch('markBeneficiaireIDUnComplete', {
+        const response = await fetch('/listingComptes/markCompteUncomplete', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
