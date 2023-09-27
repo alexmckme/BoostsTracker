@@ -9,6 +9,7 @@ const logger = require('morgan')
 const connectDB = require("./config/database")
 const homeRoutes = require("./routes/home")
 const listingComptesRoutes = require("./routes/listingComptes")
+const listingIndividuelRoutes = require("./routes/listingIndividuel")
 
 // const path = require('path')
 // const cors = require("cors")
@@ -32,7 +33,11 @@ app.use(
         secret: "keyboard cat",
         resave: false,
         saveUninitialized: false,
-        store: MongoStore.create({mongoUrl: process.env.DB_STRING}),
+        store: MongoStore.create({
+            mongoUrl: process.env.DB_STRING,
+            dbName: "boostsTracker",
+            collectionName: "sessions"
+        }),
     })
 )
 
@@ -44,6 +49,7 @@ app.use(flash())
 
 app.use("/", homeRoutes)
 app.use("/listingComptes", listingComptesRoutes)
+app.use("/listingIndividuel", listingIndividuelRoutes)
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log(`Server running!`)

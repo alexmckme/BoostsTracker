@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosts Tracker - Liste Complète </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<h1>Liste complète des Comptes à Booster :</h1>
+<ul class="todoItems">
+    <% for(let i=0; i < clients.length; i++) {%>
+        <li class="item" data-id="<%= clients[i]._id %>">
+            <% if(clients[i].completed === true) {%>
+                <span class='completed'><%= clients[i].beneficiaireID %></span>
+                <span class='completed'><%= clients[i].beneficiaireName %></span>
+                <span class='completed'><%= clients[i].beneficiaireSalesSupport %></span>
+            <% }else{ %>
+                <span><%= clients[i].beneficiaireID %></span>
+                <span><%= clients[i].beneficiaireName %></span>
+                <span><%= clients[i].beneficiaireSalesSupport %></span>
+            <% } %>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+</ul>
+
+<h2>Comptes Restants à Booster : <%= leftC %></h2>
+
+
+<p><a href="/logout">Se déconnecter</a></p>
+
+<script src='js/main.js'></script>
+</body>
+</html>
